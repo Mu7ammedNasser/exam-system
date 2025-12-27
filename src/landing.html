@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+  </head>
+  <body class="bg-[#F8F6F6] select-none">
+    <header class="bg-white py-2 fixed top-0 w-full">
+      <div class="myContianer flex justify-between items-center">
+        <div class="logo flex items-center">
+          <div class="image-contianer w-10 h-10 rounded-full overflow-hidden">
+            <img src="./assets/logo.jfif" class="w-full" alt="student image" />
+          </div>
+          <a href="#">student portal</a>
+        </div>
+        <div class="student-info flex gap-1 items-center">
+          <div class="name">student Name</div>
+          <div class="image-contianer w-10 h-10 rounded-full overflow-hidden">
+            <img src="./assets/test.jfif" class="w-full" alt="student image" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="mt-32 mb-16 lg:mt-16 lg:mb-4">
+      <div
+        class="bg-white shadow-md w-[80%] md:w-[60%] m-auto border-solid rounded-md overflow-hidden border-s-4 border-[#09c]"
+      >
+        <section class="main-header p-4 border-b border-solid border-slate-200">
+          <h2
+            class="rounded-full text-[#09c] mb-3 border border-solid border-[#09c] max-w-fit bg-[#09c]/10 capitalize px-3"
+          >
+            client side cource
+          </h2>
+          <h1
+            class="capitalize text-3xl md:text-4xl font-bold leading-tight mb-4"
+          >
+            javaScript II - final exam
+          </h1>
+          <p class="text-base md:text-lg text-gray-600">
+            This exam evaluates your understanding of basics JavaScript
+            concepts, including the DOM, events, scope, hoisting, callbacks, and
+            core language behaviors. Please ensure you have a stable internet
+            connection.
+          </p>
+        </section>
+        <section class="exam-details p-8 border-b">
+          <h2 class="text-base md:text-lg text-gray-600 mb-2 font-semibold">
+            Exam Details &amp; Instructions
+          </h2>
+          <ul class="list-none grid grid-cols-1 md:grid-cols-2 gap-2">
+            <li class="flex items-center gap-2">
+              <div
+                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+              >
+                <img src="./assets/icons/questions.png" class="w-full" alt="" />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">10 Questions</h3>
+                <p class="capitalize text-base text-gray-600">
+                  total count for this exam
+                </p>
+              </div>
+            </li>
+            <li class="flex items-center gap-2">
+              <div
+                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+              >
+                <img src="./assets/icons/multi.png" alt="" />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">Multiple Choice</h3>
+                <p class="capitalize text-base text-gray-600">
+                  4 options, 1 correct answer
+                </p>
+              </div>
+            </li>
+            <li class="flex items-center gap-2">
+              <div
+                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+              >
+                <img class="w-full" src="./assets/icons/timer.png" alt="" />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">45 Minutes</h3>
+                <p class="capitalize text-base text-gray-600">
+                  Auto-submit when time expires
+                </p>
+              </div>
+            </li>
+            <li class="flex items-center gap-2">
+              <div
+                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+              >
+                <img
+                  src="./assets/icons/icons8-flag-50.png"
+                  class="w-full"
+                  alt=""
+                />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">Flag for Review</h3>
+                <p class="capitalize text-base text-gray-600">
+                  Return to questions later
+                </p>
+              </div>
+            </li>
+          </ul>
+
+          <div
+            class="flex items-start gap-3 bg-[#ced41424] rounded-md p-3 my-4"
+          >
+            <img
+              src="./assets/icons/i.png "
+              alt="Note"
+              class="w-6 h-6 rounded-full"
+            />
+
+            <p class="text-sm leading-relaxed">
+              <strong>Note:</strong>
+              Once you start the exam, the timer cannot be paused. Please do not
+              refresh the page or navigate back.
+            </p>
+          </div>
+        </section>
+        <section class="navigate-to-exam text-center py-4 bg-slate-100">
+          <label
+            class="flex items-center justify-center gap-2 text-sm text-gray-700 mb-3"
+          >
+            <input
+              id="check-btn"
+              type="checkbox"
+              value="false"
+              class="accent-[#09c]"
+            />
+            I have read and agree to the exam instructions
+          </label>
+          <p id="warningMsg" class="mb-2 text-sm text-red-600 hidden">
+            Please confirm that you have read the exam instructions before
+            starting.
+          </p>
+          <button
+            disabled="true"
+            id="startExam"
+            class="bg-[#9e9d9d] text-white p-3 w-2/3 md:w-1/2 rounded-md font-semibold cursor-not-allowed"
+          >
+            Start Exam
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <script src="./js/landing.js"></script>
+  </body>
+</html>
