@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Examination System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- ========== NAVBAR ========== -->
+    <header class="bg-white shadow-sm py-3 px-6">
+      <div class="flex items-center justify-between">
+        <!-- LEFT: ICON + TITLE (FAR LEFT) -->
+        <div class="flex items-center gap-3">
+          <img
+            src="assets/photos/logo.jpeg"
+            alt="Graduation Cap"
+            class="w-8 h-8 object-contain"
+          />
+          <span class="font-bold text-base"> Online Examination System </span>
+        </div>
+
+        <!-- RIGHT: TEXT + LOGIN BUTTON (FAR RIGHT) -->
+        <div class="flex items-center gap-3 text-sm">
+          <span class="text-gray-600"> Already have an account? </span>
+
+          <!-- Login Button (LIKE IMAGE) -->
+          <a
+            href="#"
+            onclick="goToLogin()"
+            class="px-5 py-2 rounded-full bg-blue-100 text-blue-600 font-semibold hover:bg-blue-200 transition"
+          >
+            Login
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT (CENTERED) ========== -->
+    <main class="flex-grow flex items-center justify-center px-4 py-8">
+      <div class="max-w-6xl w-full">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="grid md:grid-cols-5">
+            <!-- LEFT BLUE SECTION -->
+            <div
+              class="md:col-span-2 bg-blue-600 text-white p-8 md:p-12 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6"
+                >
+                  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Secure & Reliable</h2>
+                <p class="text-blue-100">
+                  Join thousands of students on our secure examination platform.
+                  Create your verified identity to access scheduled assessments.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="flex -space-x-2">
+                    <div
+                      class="w-10 h-10 rounded-full bg-blue-400 border-2 border-blue-600"
+                    ></div>
+                    <div
+                      class="w-10 h-10 rounded-full bg-blue-300 border-2 border-blue-600"
+                    ></div>
+                    <div
+                      class="w-10 h-10 rounded-full bg-blue-200 border-2 border-blue-600"
+                    ></div>
+                  </div>
+                  <span class="text-sm font-medium"
+                    >+2k Students registered</span
+                  >
+                </div>
+                <p class="text-xs text-blue-200">
+                  © 2023 University Examination Board
+                </p>
+              </div>
+            </div>
+
+            <!-- RIGHT FORM -->
+            <div class="md:col-span-3 p-8 md:p-12">
+              <h1 class="text-3xl font-bold mb-2">Student Registration</h1>
+              <p class="text-gray-600 mb-8">
+                Please fill in your details to create an examination account.
+              </p>
+              <div class="space-y-5">
+                <div class="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >First Name</label
+                    >
+                    <input
+                      id="firstName"
+                      type="text"
+                      placeholder="John"
+                      onblur="validateRegisterFirstName()"
+                      oninput="clearInputError('firstName','firstNameError')"
+                      class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                    <p
+                      id="firstNameError"
+                      class="hidden mt-2 text-sm text-red-600 flex items-center gap-2"
+                    >
+                      <span
+                        class="w-4 h-4 rounded-full bg-red-600 text-white text-xs font-bold flex items-center justify-center"
+                        >!</span
+                      >
+                      <span>First name is required</span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >Last Name</label
+                    >
+                    <input
+                      id="lastName"
+                      type="text"
+                      placeholder="Doe"
+                      onblur="validateRegisterLastName()"
+                      oninput="clearInputError('lastName','lastNameError')"
+                      class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                    <p
+                      id="lastNameError"
+                      class="hidden mt-2 text-sm text-red-600 flex items-center gap-2"
+                    >
+                      <span
+                        class="w-4 h-4 rounded-full bg-red-600 text-white text-xs font-bold flex items-center justify-center"
+                        >!</span
+                      >
+                      <span>Last name must contain letters only</span>
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2">
+                    Institutional Email Address
+                  </label>
+
+                  <!-- ICON + INPUT فقط -->
+                  <div class="relative">
+                    <svg
+                      class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="student@university.edu"
+                      oninput="clearInputError('email','emailError'); hideRegisterFormError()"
+                      onblur="validateRegisterEmail()"
+                      class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <!-- ERROR برا relative -->
+                  <p
+                    id="emailError"
+                    class="mt-2 text-sm text-red-600 hidden flex items-center gap-2"
+                  >
+                    <span
+                      class="w-4 h-4 flex items-center justify-center rounded-full bg-red-600 text-white text-xs font-bold"
+                      >!</span
+                    >
+                    <span>Invalid email</span>
+                  </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >Password</label
+                    >
+
+                    <!-- ICONS + INPUT ONLY -->
+                    <div class="relative">
+                      <input
+                        id="password"
+                        type="password"
+                        placeholder="••••••••"
+                        class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                      />
+
+                      <button
+                        type="button"
+                        onclick="togglePass('password')"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                      >
+                        <svg
+                          class="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- ERROR (OUTSIDE RELATIVE) -->
+                    <p
+                      id="passwordError"
+                      class="hidden mt-2 text-sm text-red-600 flex items-center gap-2"
+                    >
+                      <span
+                        class="w-4 h-4 rounded-full bg-red-600 text-white text-xs font-bold flex items-center justify-center"
+                        >!</span
+                      >
+                      <span
+                        >Password must be at least 8 characters and contain a
+                        number</span
+                      >
+                    </p>
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >Confirm Password</label
+                    >
+
+                    <div class="relative">
+                      <input
+                        id="confirmPassword"
+                        type="password"
+                        placeholder="••••••••"
+                        class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                      />
+
+                      <button
+                        type="button"
+                        onclick="togglePass('confirmPassword')"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                      >
+                        <svg
+                          class="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <p
+                      id="confirmPasswordError"
+                      class="hidden mt-2 text-sm text-red-600 flex items-center gap-2"
+                    >
+                      <span
+                        class="w-4 h-4 rounded-full bg-red-600 text-white text-xs font-bold flex items-center justify-center"
+                        >!</span
+                      >
+                      <span>Passwords do not match</span>
+                    </p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Min. 8 characters with 1 number.
+                </p>
+                <div class="flex items-start">
+                  <input
+                    id="agree"
+                    type="checkbox"
+                    class="w-4 h-4 mt-1 text-blue-600 rounded"
+                  />
+                  <label class="ml-2 text-sm text-gray-700">
+                    I agree to the
+                    <a
+                      href="#"
+                      class="text-blue-600 hover:text-blue-700 font-medium"
+                      >Examination Rules</a
+                    >
+                    and
+                    <a
+                      href="#"
+                      class="text-blue-600 hover:text-blue-700 font-medium"
+                      >Privacy Policy</a
+                    >.
+                  </label>
+                </div>
+                <!-- REGISTER SUCCESS -->
+                <div
+                  id="registerSuccess"
+                  class="hidden mb-4 rounded-lg bg-green-100 border border-green-300 px-4 py-3 text-sm text-green-700 flex items-start gap-3"
+                >
+                  <span
+                    class="w-5 h-5 flex items-center justify-center rounded-full bg-green-600 text-white text-xs font-bold mt-0.5"
+                    >✓</span
+                  >
+                  <div>
+                    <p class="font-semibold">Success</p>
+                    <p>Your account has been created successfully.</p>
+                  </div>
+                </div>
+
+                <p
+                  id="agreeError"
+                  class="hidden mt-2 text-sm text-red-600 flex items-center gap-2"
+                >
+                  <span
+                    class="w-4 h-4 rounded-full bg-red-600 text-white text-xs font-bold flex items-center justify-center"
+                    >!</span
+                  >
+                  <span>You must agree before creating an account</span>
+                </p>
+                <!-- REGISTER FORM ERROR -->
+                <div
+                  id="registerFormError"
+                  class="hidden mb-4 rounded-lg bg-red-100 border border-red-300 px-4 py-3 text-sm text-red-700"
+                >
+                  This email is already registered. Please
+                  <a href="login.html" class="underline font-semibold"
+                    >sign in</a
+                  >
+                  or use another email.
+                </div>
+
+                <button
+                  type="button"
+                  onclick="registerUser()"
+                  class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 flex items-center justify-center gap-2"
+                >
+                  Create Account
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="text-center py-6 text-sm text-gray-600">
+      <p>© 2023 Online Examination System. All rights reserved.</p>
+      <p class="mt-1">System ID: OES-REG-V2.4</p>
+    </footer>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
