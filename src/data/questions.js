@@ -1,9 +1,83 @@
 export const questions = [
   {
     id: 1,
-    question: "What is 2 + 2?",
-    options: ["2", "3", "4", "5"],
-    correctAnswer: 2,
+    question: "What does HTML stand for?",
+    options: [
+      "Hyper Text Markup Language",
+      "High Text Machine Language",
+      "Hyperlinks and Text Markup Language",
+      "Home Tool Markup Language",
+    ],
+    correctAnswer: 0,
+    difficulty: "easy",
   },
-  // ... more questions
+  {
+    id: 2,
+    question: "Which language is used to style web pages?",
+    options: ["HTML", "CSS", "JavaScript", "Python"],
+    correctAnswer: 1,
+    difficulty: "easy",
+  },
+  {
+    id: 3,
+    question: "Which of the following is NOT a programming language?",
+    options: ["Java", "Python", "HTML", "C++"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    id: 4,
+    question: "What is the correct way to declare a variable in JavaScript?",
+    options: ["var myVar;", "variable myVar;", "v myVar;", "declare myVar;"],
+    correctAnswer: 0,
+    difficulty: "medium",
+  },
+  {
+    id: 5,
+    question: "Which keyword is used to define a constant in JavaScript?",
+    options: ["var", "let", "const", "static"],
+    correctAnswer: 2,
+    difficulty: "medium",
+  },
+  {
+    id: 6,
+    question: "What does CSS stand for?",
+    options: [
+      "Colorful Style Sheets",
+      "Creative Style System",
+      "Cascading Style Sheets",
+      "Computer Style Sheets",
+    ],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    id: 7,
+    question: "Which symbol is used for single-line comments in JavaScript?",
+    options: ["<!-- -->", "//", "/* */", "#"],
+    correctAnswer: 1,
+    difficulty: "medium",
+  },
+  {
+    id: 8,
+    question:
+      "Which method is used to output data to the browser console in JavaScript?",
+    options: ["print()", "log()", "console.log()", "alert()"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    id: 9,
+    question: "Which HTML tag is used to include JavaScript code?",
+    options: ["<js>", "<javascript>", "<script>", "<code>"],
+    correctAnswer: 2,
+    difficulty: "easy",
+  },
+  {
+    id: 10,
+    question: "What is the output of: typeof null in JavaScript?",
+    options: ["null", "undefined", "object", "number"],
+    correctAnswer: 2,
+    difficulty: "hard",
+  },
 ];
