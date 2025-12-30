@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questions</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+  </head>
+  <body class="select-none">
+    <div
+      class="grid grid-cols-1 md:grid-cols-[300px_1fr] grid-rows-[auto_1fr] h-screen bg-gray-100"
+    >
+      <header class="col-span-full py-3 bg-white border-b border-border-light">
+        <div class="px-12 flex justify-between items-center">
+          <div class="logo flex items-center">
+            <div class="image-contianer w-10 h-10 rounded-full overflow-hidden">
+              <img
+                src="./assets/logo.jfif"
+                class="w-full"
+                alt="student image"
+              />
+            </div>
+            <h1>Final JS Exam</h1>
+          </div>
+          <div class="bg-red border border-red-600">Time: 30:00</div>
+          <div class="student-info flex gap-1 items-center">
+            <button
+              class="flex bg-blue-600 text-white hover:bg-blue-700 items-center gap-2 px-5 py-2.5 rounded-lg border b transition-all"
+            >
+              <span>Submit Exam</span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <aside class="hidden bg-white md:block">
+        <div class="p-6 border-b border-border-light">
+          <h2 class="text-base font-bold mb-1">question navigator</h2>
+          <p class="text-sm text-gray-500">10 questions total</p>
+        </div>
+
+        <div class="questions-navigator p-6 grid grid-cols-4 gap-3">
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">1</span>
+            <span class="current text-[12px] text-blue-600 "></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">2</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">3</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">4</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">5</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">6</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">7</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">8</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">9</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+          <button
+            class="text-sm font-bold aspect-square flex flex-col items-center justify-center rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition-colors"
+          >
+            <span class="question-NUmber">10</span>
+            <span class="current text-[12px] text-blue-600"></span>
+          </button>
+        </div>
+      </aside>
+      <main class="p-6 grid gap-6 bg-gray-50">
+        <!-- Header -->
+        <div
+          class="question-header flex justify-between items-center p-4 bg-white border border-border-light rounded-lg shadow-sm"
+        >
+          <div
+            id="question-counter"
+            class="question-counter px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-semibold text-sm"
+          ></div>
+
+          <button
+            class="flag-button flex items-center gap-2 px-4 py-2 rounded-full border border-border-light text-gray-600 hover:bg-yellow-50 hover:border-yellow-400 hover:text-yellow-600 transition"
+          >
+            <img src="./assets/icons/flag.png" alt="flag" class="w-5 h-5" />
+            <p class="text-sm font-medium">Flag for Review</p>
+          </button>
+        </div>
+
+        <!-- Question Card -->
+        <div
+          class="question-card bg-white border border-border-light p-6 rounded-xl shadow-sm"
+        >
+          <h3
+            id="question-header"
+            class="text-xl md:text-2xl font-bold leading-snug mb-8 text-gray-800"
+          ></h3>
+
+          <!-- Answer -->
+          <label
+            class="mb-4 flex items-center gap-4 rounded-lg border border-border-light p-4 cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition"
+          >
+            <input class="h-5 w-5 accent-blue-600" type="radio" />
+            <span class="text-base font-medium text-gray-800"></span>
+          </label>
+
+          <label
+            class="mb-4 flex items-center gap-4 rounded-lg border border-border-light p-4 cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition"
+          >
+            <input class="h-5 w-5 accent-blue-600" type="radio" />
+            <span class="text-base font-medium text-gray-800"></span>
+          </label>
+
+          <label
+            class="mb-4 flex items-center gap-4 rounded-lg border border-border-light p-4 cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition"
+          >
+            <input class="h-5 w-5 accent-blue-600" type="radio" />
+            <span class="text-base font-medium text-gray-800"></span>
+          </label>
+
+          <label
+            class="flex items-center gap-4 rounded-lg border border-border-light p-4 cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition"
+          >
+            <input class="h-5 w-5 accent-blue-600" type="radio" />
+            <span class="text-base font-medium text-gray-800"></span>
+          </label>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-around items-center mt-2">
+          <button
+            id="prev-btn"
+            class="px-6 py-2 flex rounded-lg border border-border-light text-gray-600 hover:bg-gray-200 transition"
+          >
+            <img
+              src="./assets/icons/icons8-left-arrow-16.png"
+              class="w-6"
+              alt=""
+            /><span>Prev</span>
+          </button>
+
+          <button
+            id="next-btn"
+            class="px-6 py-2 flex rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+          >
+            <span>Next</span
+            ><img
+              src="./assets/icons/icons8-left-arrow-16 (1).png"
+              class="w-6"
+              alt=""
+            />
+          </button>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="./js/exam.js"></script>
+  </body>
+</html>
