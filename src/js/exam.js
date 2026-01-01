@@ -57,6 +57,7 @@ document.getElementById("next-btn").addEventListener("click", function () {
     renderQuestion();
   }
   renderNavigator();
+  updateFlagButtonStyle();
 });
 
 document.getElementById("prev-btn").addEventListener("click", function () {
@@ -67,6 +68,7 @@ document.getElementById("prev-btn").addEventListener("click", function () {
     renderQuestion();
     renderNavigator();
   }
+  updateFlagButtonStyle();
 });
 
 function renderNavigator() {
@@ -100,15 +102,78 @@ function renderNavigator() {
 }
 
 document.querySelector(".flag-button").addEventListener("click", function () {
-  console.log(`flagged question number ${currentQuestionIndex + 1}`);
   if (flaggedQuestions.has(currentQuestionIndex)) {
+    updateFlagButtonStyle();
     flaggedQuestions.delete(currentQuestionIndex);
   } else {
+    updateFlagButtonStyle();
     flaggedQuestions.add(currentQuestionIndex);
   }
   saveFlaggedQuestions();
   renderNavigator();
+  updateFlagButtonStyle();
 });
+
+/**************************************** */
+// handle overlay counts
+/******************************************* */
+function displayOverlay() {
+  document.querySelector(".overlay").classList.remove("hidden");
+}
+
+function closeOverlay() {
+  document.querySelector(".overlay").classList.add("hidden");
+}
+
+function submitExam() {
+    window.location.replace("./result.html");
+
+}
+
+function updateCounts() {
+  document.querySelector(".answered-count").textContent =
+    Object.keys(userAnswers).length;
+
+  document.querySelector(".flagged-count").textContent = flaggedQuestions.size;
+
+  document.querySelector(".unanswered-count").textContent =
+    questions.length - Object.keys(userAnswers).length;
+}
+
+// add event listeners
+document
+  .querySelector("#submit-exam-btn")
+  .addEventListener("click", displayOverlay);
+document
+  .querySelector("#submit-exam-btn")
+  .addEventListener("click", updateCounts);
+document.querySelector(".cancel-btn").addEventListener("click", closeOverlay);
+document.querySelector(".final-submit-btn").addEventListener("click", submitExam);
+document
+  .querySelector("button.close-btn")
+  .addEventListener("click", closeOverlay);
+
+// initialize counts
+
+function updateFlagButtonStyle() {
+  var flagBtn = document.querySelector(".flag-button");
+  if (!flagBtn) return;
+
+  flagBtn.classList.remove(
+    "bg-yellow-50",
+    "border-yellow-400",
+    "text-yellow-600"
+  );
+  if (flaggedQuestions.has(currentQuestionIndex)) {
+    flagBtn.classList.add(
+      "bg-yellow-50",
+      "border-yellow-400",
+      "text-yellow-600"
+    );
+  }
+}
+updateFlagButtonStyle();
+updateCounts();
 
 renderNavigator();
 renderQuestion();
