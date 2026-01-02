@@ -66,17 +66,17 @@
         <div
           class="rounded-lg overflow-hidden inset-shadow-sm shadow-md mb-6 grid grid-cols-1 md:grid-cols-2"
         >
-          <div class="grade flex flex-col justify-content-center items-center  bg-white p-4 md:p-6 lg:p-8 bg-tr">
-            <div>
-                
-            </div>
-            <div class="w-[150px] h-[150px] bg-black rounded-full">
-
+          <div
+            class="grade flex flex-col justify-content-center items-center bg-white p-4 md:p-6 lg:p-8 bg-tr"
+          >
+            <div
+              class="relative w-[200px] h-[200px] rounded-full progress-circle flex-col flex items-center justify-center"
+            >
+              <span class="text-5xl font-bold"></span>
+              <p class="text-white font-semibold">Total Score</p>
             </div>
             <div class="text-center max-w-[280px]">
-              <p
-                class="text-sm text-gray-600  leading-relaxed"
-              >
+              <p class="score-message text-sm text-gray-600 leading-relaxed">
                 Unfortunately, you did not meet the passing criteria of
                 <strong>60%</strong>. Don't be discouraged—review your weak
                 areas and try again.
@@ -87,7 +87,7 @@
             <h2 class="text-lg capitalize font-bold mb-2">
               performance summary
             </h2>
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div
                 class="shadow-md border-s-4 border-solid border-blue-300 rounded-lg p-5"
               >
@@ -101,52 +101,52 @@
                     Total
                   </h4>
                 </div>
-                <p class="font-bold text-2xl">50</p>
+                <p class="total-ques font-bold text-2xl">50</p>
               </div>
               <div
                 class="shadow-md border-s-4 border-solid border-blue-300 rounded-lg p-5"
               >
                 <div class="flex items-center gap-1 mb-2">
                   <img
-                    src="./assets/icons/icons8-checklist-50.png"
+                    src="./assets/icons/icons8-correct-30.png"
                     class="w-[15px] h-[15px]"
                     alt=""
                   />
-                  <h4 class="text-gray-500 text-xs font-semibold uppercase">
+                  <h4 class="text-green-500 text-xs font-semibold uppercase">
                     correct
                   </h4>
                 </div>
-                <p class="font-bold text-2xl">50</p>
+                <p class="total-correct-ques font-bold text-2xl">50</p>
               </div>
               <div
                 class="shadow-md border-s-4 border-solid border-blue-300 rounded-lg p-5"
               >
                 <div class="flex items-center gap-1 mb-2">
                   <img
-                    src="./assets/icons/icons8-checklist-50.png"
+                    src="./assets/icons/icons8-x-48.png"
                     class="w-[15px] h-[15px]"
                     alt=""
                   />
-                  <h4 class="text-gray-500 text-xs font-semibold uppercase">
+                  <h4 class="text-red-500 text-xs font-semibold uppercase">
                     incorrect
                   </h4>
                 </div>
-                <p class="font-bold text-2xl">50</p>
+                <p class="total-incorrect-ques font-bold text-2xl">50</p>
               </div>
               <div
                 class="shadow-md border-s-4 border-solid border-blue-300 rounded-lg p-5"
               >
                 <div class="flex items-center gap-1 mb-2">
                   <img
-                    src="./assets/icons/icons8-checklist-50.png"
+                    src="./assets/icons/flag.png"
                     class="w-[15px] h-[15px]"
                     alt=""
                   />
-                  <h4 class="text-gray-500 text-xs font-semibold uppercase">
-                    skipped
+                  <h4 class="text-yellow-500 text-xs font-semibold uppercase">
+                    flagged
                   </h4>
                 </div>
-                <p class="font-bold text-2xl">50</p>
+                <p class="total-flagged-ques font-bold text-2xl"></p>
               </div>
             </div>
           </div>

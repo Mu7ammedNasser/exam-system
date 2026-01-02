@@ -12,3 +12,14 @@ body {
   width: 85%;
   margin: auto;
 }
+
+.progress-circle {
+  --value: 0; 
+  background:
+    conic-gradient(
+      #22c55e calc(var(--value) * 1%),
+      #e5e7eb 0
+    );
+}
+
+

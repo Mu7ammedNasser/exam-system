@@ -126,6 +126,7 @@ function closeOverlay() {
 }
 
 function submitExam() {
+  saveAnswer();
     window.location.replace("./result.html");
 
 }
