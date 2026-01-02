@@ -133,7 +133,7 @@ function loginUser() {
     return;
   }
 
-  localStorage.setItem("currentUser", email);
+  setCurrentUser(user);
   window.location.replace("landing.html");
 }
 
@@ -332,8 +332,16 @@ function registerUser() {
     passwordHash: hashPassword(password),
   });
 
+  const newUser = {
+    firstName: document.getElementById("firstName").value.trim(),
+    lastName: document.getElementById("lastName").value.trim(),
+    email,
+    passwordHash: hashPassword(password),
+  };
+
   saveUsers(users);
-  localStorage.setItem("currentUser", email);
+  setCurrentUser(newUser);
+
 
   hideRegisterFormError();
   hideRegisterSuccess();
@@ -355,7 +363,8 @@ function isOnlyLetters(value) {
  * AUTH GUARD
  ***********************/
 function requireAuth() {
-  const user = localStorage.getItem("currentUser");
+  const user = getCurrentUser();
+
   if (!user) {
     window.location.href = "login.html";
     return;
@@ -364,14 +373,16 @@ function requireAuth() {
 }
 
 function redirectIfLoggedIn() {
-  const user = localStorage.getItem("currentUser");
+  const user = getCurrentUser();
+
   if (user) {
     window.location.href = "landing.html";
   }
 }
 
 function redirectIfNotLoggedIn() {
-  const user = localStorage.getItem("currentUser");
+  const user = getCurrentUser();
+
   if (!user) {
     window.location.href = "login.html";
   }
@@ -406,4 +417,22 @@ function logout() {
 function togglePass(id) {
   const input = document.getElementById(id);
   input.type = input.type === "password" ? "text" : "password";
+}
+
+/*************************************************** */
+// NEW: Get current logged-in user's full info
+function getCurrentUser() {
+  var currentUserData = localStorage.getItem("currentUser");
+  if (!currentUserData) return null;
+  return JSON.parse(currentUserData);
+}
+
+// NEW: Save current user's full info (without password hash)
+function setCurrentUser(user) {
+  var userData = {
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+  };
+  localStorage.setItem("currentUser", JSON.stringify(userData));
 }
