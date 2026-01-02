@@ -32,11 +32,16 @@ if (percentage >= 60) {
     Congratulations! You passed the exam with
     <strong>${percentage}%</strong>. Keep up the good work!
   `;
+
   shockMessage.innerHTML = `
     <img src="./assets/icons/icons8-correct-30.png" alt="" class="w-[16px] h-[16px]"> Congratulations
   `;
 
-  shockMessage.classList.add("border-green-600", "text-green-600", "bg-green-600/10");
+  shockMessage.classList.add(
+    "border-green-600",
+    "text-green-600",
+    "bg-green-600/10"
+  );
 } else {
   console.log("failed");
 
@@ -56,12 +61,7 @@ if (percentage >= 60) {
                 >!</span
               >Faild
   `;
-    shockMessage.classList.add(
-      "border-red-600",
-      "text-red-600",
-      "bg-red-600/10"
-    );
-
+  shockMessage.classList.add("border-red-600", "text-red-600", "bg-red-600/10");
 }
 
 // performance summary
@@ -73,3 +73,7 @@ document.querySelector(".total-incorrect-ques").textContent =
 
 document.querySelector(".total-flagged-ques").textContent =
   flaggedquestions.length;
+
+localStorage.removeItem("userAnswers");
+localStorage.removeItem("flaggedQuestions");
+

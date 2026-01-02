@@ -48,6 +48,8 @@ function renderQuestion() {
       optionsRadio.checked = false;
     }
   });
+
+  
 }
 
 document.getElementById("next-btn").addEventListener("click", function () {
@@ -99,6 +101,8 @@ function renderNavigator() {
       return;
     }
   });
+
+  handelLastButton();
 }
 
 document.querySelector(".flag-button").addEventListener("click", function () {
@@ -114,6 +118,38 @@ document.querySelector(".flag-button").addEventListener("click", function () {
   updateFlagButtonStyle();
 });
 
+function handelLastButton() {
+  if (currentQuestionIndex == questions.length - 1) {
+    document
+      .querySelector("#next-btn")
+      .classList.remove("hover:bg-blue-700", "bg-blue-600");
+    document
+      .querySelector("#next-btn")
+      .classList.add("bg-gray-600", "cursor-not-allowed");
+
+    document.querySelector("#next-btn").innerHTML = `
+      <span class="content">Last Question</span
+            >
+    `;
+  } else {
+    document
+      .querySelector("#next-btn")
+      .classList.add("hover:bg-blue-700", "bg-blue-600");
+    document
+      .querySelector("#next-btn")
+      .classList.remove("bg-gray-600", "cursor-not-allowed");
+
+    document.querySelector("#next-btn").innerHTML = `
+       <span class="content">Next</span
+            >
+            <img
+              src="./assets/icons/icons8-left-arrow-16 (1).png"
+              class="w-6"
+              alt=""
+            />
+    `;
+  }
+}
 /**************************************** */
 // handle overlay counts
 /******************************************* */
@@ -127,11 +163,11 @@ function closeOverlay() {
 
 function submitExam() {
   saveAnswer();
-    window.location.replace("./result.html");
-
+  window.location.replace("./result.html");
 }
 
 function updateCounts() {
+  saveAnswer();
   document.querySelector(".answered-count").textContent =
     Object.keys(userAnswers).length;
 
@@ -141,6 +177,8 @@ function updateCounts() {
     questions.length - Object.keys(userAnswers).length;
 }
 
+
+
 // add event listeners
 document
   .querySelector("#submit-exam-btn")
@@ -149,7 +187,9 @@ document
   .querySelector("#submit-exam-btn")
   .addEventListener("click", updateCounts);
 document.querySelector(".cancel-btn").addEventListener("click", closeOverlay);
-document.querySelector(".final-submit-btn").addEventListener("click", submitExam);
+document
+  .querySelector(".final-submit-btn")
+  .addEventListener("click", submitExam);
 document
   .querySelector("button.close-btn")
   .addEventListener("click", closeOverlay);
@@ -178,3 +218,4 @@ updateCounts();
 
 renderNavigator();
 renderQuestion();
+
