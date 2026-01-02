@@ -41,7 +41,7 @@ if (percentage >= 60) {
   )`;
   message.innerHTML = `
     Unfortunately, you did not meet the passing criteria of
-    <strong>60%</strong>. Don't be discouraged—review your weak areas and try again.
+    <strong>60%</strong>. Don't be discouraged, review your weak areas and try again.
   `;
 }
 
