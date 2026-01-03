@@ -234,14 +234,20 @@ if (!localStorage.getItem("currentUser")) {
   // timing
   /********************************************** */
   var totalSeconds = 605;
-  var remaining = totalSeconds;
+
+  if (!localStorage.getItem("examEndTime")) {
+    const endTime = Date.now() + totalSeconds * 1000;
+    localStorage.setItem("examEndTime", endTime);
+  }
+
+  // var remaining = totalSeconds;
   var ring = document.getElementById("progress-ring");
   var timeEl = document.getElementById("time");
   var perimeter = 496;
 
   function updateTimer() {
-    // 🔑 Decrement FIRST
-    remaining--;
+    var endTime = Number(localStorage.getItem("examEndTime"));
+    var remaining = Math.floor((endTime - Date.now()) / 1000);
 
     // Stop check
     if (remaining < 0) {
@@ -250,6 +256,7 @@ if (!localStorage.getItem("currentUser")) {
       document.querySelector(".time-out-overLay").classList.remove("hidden");
 
       setTimeout(() => {
+        localStorage.removeItem("examEndTime");
         window.location.replace("./result.html");
       }, 5000);
 
