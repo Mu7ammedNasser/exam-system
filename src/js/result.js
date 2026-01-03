@@ -1,8 +1,9 @@
 import { questions } from "../data/questions.js";
-var useranswers = JSON.parse(localStorage.getItem("userAnswers"));
+var useranswers = JSON.parse(localStorage.getItem("userAnswers")) || {};
 var flaggedquestions =
   JSON.parse(localStorage.getItem("flaggedQuestions")) || [];
-let score = questions.length;
+var score = questions.length;
+
 for (var i = 0; i < questions.length; i++) {
   if (useranswers[i + 1] == questions[i].correctAnswer) {
     continue;
@@ -10,7 +11,13 @@ for (var i = 0; i < questions.length; i++) {
   score--;
 }
 
-var percentage = (score / questions.length) * 100;
+var currentUserInfo = JSON.parse(localStorage.getItem("currentUser"));
+
+document.querySelector(
+  ".student-name"
+).textContent = `${currentUserInfo["firstName"]} ${currentUserInfo["lastName"]}`;
+
+var percentage = (score / questions.length) * 100 || 0;
 
 var circle = document.querySelector(".progress-circle");
 var text = circle.querySelector("span");
@@ -67,13 +74,18 @@ if (percentage >= 60) {
 // performance summary
 
 document.querySelector(".total-ques").textContent = questions.length;
-document.querySelector(".total-correct-ques").textContent = score;
+document.querySelector(".total-correct-ques").textContent = score || 0;
 document.querySelector(".total-incorrect-ques").textContent =
-  questions.length - score;
+  questions.length - score || 0;
 
 document.querySelector(".total-flagged-ques").textContent =
-  flaggedquestions.length;
+  flaggedquestions.length || 0;
 
-localStorage.removeItem("userAnswers");
-localStorage.removeItem("flaggedQuestions");
+///logout
 
+document.querySelector(".logout").addEventListener("click", function () {
+  localStorage.removeItem("currentUser");
+  localStorage.removeItem("userAnswers");
+  localStorage.removeItem("flaggedQuestions");
+  window.location.replace("./login.html");
+});

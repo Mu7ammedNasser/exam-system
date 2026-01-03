@@ -1,7 +1,12 @@
-const checkBtn = document.querySelector('input[type="checkbox"]');
-const button = document.getElementById("startExam");
-const warningMsg = document.getElementById("warningMsg");
+var checkBtn = document.querySelector('input[type="checkbox"]');
+var button = document.getElementById("startExam");
+var warningMsg = document.getElementById("warningMsg");
 
+var currentUserInfo = JSON.parse(localStorage.getItem("currentUser"));
+
+document.querySelector(
+  ".student-name"
+).textContent = `${currentUserInfo["firstName"]} ${currentUserInfo["lastName"]}`;
 // button.classList.add("bg-[#9e9d9d]");
 // button.classList.add("cursor-not-allowed");
 checkBtn.addEventListener("change", () => {
@@ -27,4 +32,9 @@ button.addEventListener("click", () => {
   sessionStorage.setItem("examStarted", "true");
   window.location.replace("./exam.html");
   //   window.location.href = "./exam.html";
+});
+
+document.querySelector(".logout").addEventListener("click", function () {
+  localStorage.removeItem("currentUser");
+  window.location.replace("./login.html");
 });
