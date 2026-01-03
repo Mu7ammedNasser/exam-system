@@ -229,7 +229,7 @@ renderQuestion();
 /********************************************** */
 // timing
 /********************************************** */
-var totalSeconds = 500;
+var totalSeconds = 605;
 var remaining = totalSeconds;
 var ring = document.getElementById("progress-ring");
 var timeEl = document.getElementById("time");
@@ -242,6 +242,13 @@ function updateTimer() {
   // Stop check
   if (remaining < 0) {
     clearInterval(timer);
+    saveAnswer();
+    document.querySelector(".time-out-overLay").classList.remove("hidden");
+
+    setTimeout(() => {
+      window.location.replace("./result.html");
+    }, 5000);
+
     return;
   }
 
@@ -254,9 +261,8 @@ function updateTimer() {
   var progress = remaining / totalSeconds;
   ring.style.strokeDashoffset = perimeter * progress;
 
-  // Color changes with smooth transitions
   // Remove all color classes first
-  timeEl.className = "relative px-6 py-2 rounded-full font-semibold";
+  timeEl.className = "px-6 py-2 rounded-full font-semibold";
 
   if (remaining <= 300) {
     // Critical -
@@ -276,6 +282,8 @@ updateTimer();
 // Start interval immediately - first tick happens at 1 second
 var timer = setInterval(updateTimer, 1000);
 
+/*********************************************************** */
+/*********************************************************** */
 /*********************************************************** */
 // responsive sidebar
 var sidebar = document.getElementById("sidebar");

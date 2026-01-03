@@ -105,7 +105,10 @@
       ></div>
 
       <!-- Sidebar -->
-      <aside id="sidebar" class="hidden bg-white md:block md:relative fixed right-0 top-0 h-full z-40 transform translate-x-full md:translate-x-0 transition-transform duration-300 shadow-lg md:shadow-none">
+      <aside
+        id="sidebar"
+        class="hidden bg-white md:block md:relative fixed right-0 top-0 h-full z-40 transform translate-x-full md:translate-x-0 transition-transform duration-300 shadow-lg md:shadow-none"
+      >
         <div class="p-6 border-b border-border-light">
           <h2 class="text-base font-bold mb-1">question navigator</h2>
           <p class="text-sm text-gray-500">10 questions total</p>
@@ -261,7 +264,7 @@
 
     <!-- overlay for submit exam -->
     <div
-      class="overlay hidden absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center"
+      class="overlay hidden absolute z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center"
     >
       <div
         class="overlay-content bg-white p-4 rounded-lg max-w-md lg:max-w-2xl relative"
@@ -319,8 +322,16 @@
     </div>
 
     <!--overlay for exam auto summision -->
+    <div
+      class="hidden time-out-overLay absolute inset-0 bg-black/90 z-50 flex items-center justify-center"
+    >
+      <div class="text-white text-center">
+        <h2 class=" text-red-600 text-3xl font-bold ">Time's Up!</h2>
+        <p class="text-lg">Your exam has ended.</p>
+        <p class="animate-bounce text">you will be navigated to result after 5 sec</p>
+      </div>
+    </div>
     <!--overlay for exam auto summision -->
-    
 
     <script type="module" src="./js/exam.js"></script>
   </body>
