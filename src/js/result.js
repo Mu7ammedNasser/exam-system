@@ -89,3 +89,6 @@ document.querySelector(".logout").addEventListener("click", function () {
   localStorage.removeItem("flaggedQuestions");
   window.location.replace("./login.html");
 });
+
+// localStorage.removeItem("userAnswers");
+// localStorage.removeItem("flaggedQuestions");
