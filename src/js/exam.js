@@ -6,6 +6,7 @@ var currentQuestionIndex = 0;
 var flaggedQuestions = new Set(
   JSON.parse(localStorage.getItem("flaggedQuestions")) || []
 );
+var buttons = document.querySelectorAll(".questions-navigator button");
 
 function saveAnswer() {
   var selectedChoice = document.querySelector('input[type="radio"]:checked');
@@ -39,7 +40,7 @@ function renderQuestion() {
 
   optionsRadios.forEach(function (optionsRadio, index) {
     optionsRadio.value = index;
-    optionsRadio.name = toString(question.id);
+    optionsRadio.name = String(question.id);
     optionsRadio.nextElementSibling.textContent = question.options[index];
 
     if (userAnswers[question.id] === index) {
@@ -48,8 +49,6 @@ function renderQuestion() {
       optionsRadio.checked = false;
     }
   });
-
-  
 }
 
 document.getElementById("next-btn").addEventListener("click", function () {
@@ -74,7 +73,6 @@ document.getElementById("prev-btn").addEventListener("click", function () {
 });
 
 function renderNavigator() {
-  var buttons = document.querySelectorAll(".questions-navigator button");
   buttons.forEach(function (button, index) {
     //remove style of current of other buttons
     button.classList.remove(
@@ -177,8 +175,6 @@ function updateCounts() {
     questions.length - Object.keys(userAnswers).length;
 }
 
-
-
 // add event listeners
 document
   .querySelector("#submit-exam-btn")
@@ -213,9 +209,19 @@ function updateFlagButtonStyle() {
     );
   }
 }
-updateFlagButtonStyle();
-updateCounts();
 
+buttons.forEach(function (button, index) {
+  button.addEventListener("click", function () {
+    saveAnswer();
+    currentQuestionIndex = index;
+    console.log(currentQuestionIndex);
+    renderQuestion();
+    renderNavigator();
+    updateCounts();
+    updateFlagButtonStyle();
+  });
+});
+
+updateFlagButtonStyle();
 renderNavigator();
 renderQuestion();
-
