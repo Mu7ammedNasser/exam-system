@@ -225,3 +225,72 @@ buttons.forEach(function (button, index) {
 updateFlagButtonStyle();
 renderNavigator();
 renderQuestion();
+
+/********************************************** */
+// timing
+/********************************************** */
+var totalSeconds = 500;
+var remaining = totalSeconds;
+var ring = document.getElementById("progress-ring");
+var timeEl = document.getElementById("time");
+var perimeter = 496;
+
+function updateTimer() {
+  // 🔑 Decrement FIRST
+  remaining--;
+
+  // Stop check
+  if (remaining < 0) {
+    clearInterval(timer);
+    return;
+  }
+
+  // Update time text
+  var m = String(Math.floor(remaining / 60)).padStart(2, "0");
+  var s = String(remaining % 60).padStart(2, "0");
+  timeEl.textContent = `${m}:${s}`;
+
+  // Calculate progress
+  var progress = remaining / totalSeconds;
+  ring.style.strokeDashoffset = perimeter * progress;
+
+  // Color changes with smooth transitions
+  // Remove all color classes first
+  timeEl.className = "relative px-6 py-2 rounded-full font-semibold";
+
+  if (remaining <= 300) {
+    // Critical -
+    ring.style.stroke = "#dc2626"; // red-600
+    timeEl.classList.add("bg-red-600/10", "text-red-600");
+  } else if (remaining <= 600) {
+    // Warning
+    ring.style.stroke = "#f59e0b"; // amber-500
+    timeEl.classList.add("bg-amber-500/10", "text-amber-600");
+  } else {
+    // Normal -
+    ring.style.stroke = "#2563eb"; // blue-600
+    timeEl.classList.add("bg-blue-600/10", "text-blue-600");
+  }
+}
+updateTimer();
+// Start interval immediately - first tick happens at 1 second
+var timer = setInterval(updateTimer, 1000);
+
+/*********************************************************** */
+// responsive sidebar
+var sidebar = document.getElementById("sidebar");
+var toggleBtn = document.getElementById("mobile-sidebar-toggle");
+var backdrop = document.getElementById("sidebar-backdrop");
+
+// Toggle sidebar on mobile
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.remove("hidden");
+  sidebar.classList.toggle("translate-x-full");
+  backdrop.classList.toggle("hidden");
+});
+
+// Close sidebar when clicking backdrop
+backdrop.addEventListener("click", () => {
+  sidebar.classList.add("translate-x-full");
+  backdrop.classList.add("hidden");
+});

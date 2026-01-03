@@ -22,9 +22,55 @@
             </div>
             <h1>Final JS Exam</h1>
           </div>
-          <div class="bg-red border border-red-600">Time: 30:00</div>
+
+          <div class="relative inline-flex items-center justify-center">
+            <!-- Progress Border -->
+            <svg
+              class="absolute inset-0 w-full h-full"
+              viewBox="0 0 200 60"
+              preserveAspectRatio="none"
+            >
+              <!-- background border -->
+              <rect
+                x="3"
+                y="3"
+                width="194"
+                height="54"
+                rx="27"
+                ry="27"
+                fill="none"
+                stroke="#e5e7eb"
+                stroke-width="6"
+              />
+
+              <!-- progress border -->
+              <rect
+                id="progress-ring"
+                x="3"
+                y="3"
+                width="194"
+                height="54"
+                rx="27"
+                ry="27"
+                fill="none"
+                stroke="#2563eb"
+                stroke-width="6"
+                stroke-linecap="round"
+                stroke-dasharray="496"
+                stroke-dashoffset="0"
+              />
+            </svg>
+
+            <!-- Time -->
+            <div
+              id="time"
+              class="relative px-6 py-2 bg-transparent rounded-full text-blue-600 font-semibold"
+            ></div>
+          </div>
+
           <div class="student-info flex gap-1 items-center">
-            <button id="submit-exam-btn"
+            <button
+              id="submit-exam-btn"
               class="flex bg-blue-600 text-white hover:bg-blue-700 items-center gap-2 px-5 py-2.5 rounded-lg border b transition-all"
             >
               <span>Submit Exam</span>
@@ -32,7 +78,34 @@
           </div>
         </div>
       </header>
-      <aside class="hidden bg-white md:block">
+      <!-- Mobile Toggle Button (only visible on mobile) -->
+      <button
+        id="mobile-sidebar-toggle"
+        class="md:hidden fixed bottom-6 right-6 z-50 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Backdrop Overlay (only visible when sidebar is open on mobile) -->
+      <div
+        id="sidebar-backdrop"
+        class="md:hidden fixed inset-0 bg-black/50 z-40 hidden"
+      ></div>
+
+      <!-- Sidebar -->
+      <aside id="sidebar" class="hidden bg-white md:block md:relative fixed right-0 top-0 h-full z-40 transform translate-x-full md:translate-x-0 transition-transform duration-300 shadow-lg md:shadow-none">
         <div class="p-6 border-b border-border-light">
           <h2 class="text-base font-bold mb-1">question navigator</h2>
           <p class="text-sm text-gray-500">10 questions total</p>
@@ -112,7 +185,7 @@
           ></div>
 
           <button
-            class="flag-button flex items-center gap-2 px-4 py-2 rounded-full border border-border-light text-gray-600  transition"
+            class="flag-button flex items-center gap-2 px-4 py-2 rounded-full border border-border-light text-gray-600 transition"
           >
             <img src="./assets/icons/flag.png" alt="flag" class="w-5 h-5" />
             <p class="text-sm font-medium">Flag for Review</p>
@@ -175,8 +248,7 @@
             id="next-btn"
             class="px-6 py-2 flex rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
           >
-            <span class="content">Next</span
-            >
+            <span class="content">Next</span>
             <img
               src="./assets/icons/icons8-left-arrow-16 (1).png"
               class="w-6"
@@ -194,12 +266,14 @@
       <div
         class="overlay-content bg-white p-4 rounded-lg max-w-md lg:max-w-2xl relative"
       >
-        <button 
-          class="close-btn text-2xl  absolute top-4 right-4 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center   transition"
+        <button
+          class="close-btn text-2xl absolute top-4 right-4 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center transition"
         >
           x
         </button>
-        <header class="flex items-center gap-2 mb-4 border-b border-border-light pb-4">
+        <header
+          class="flex items-center gap-2 mb-4 border-b border-border-light pb-4"
+        >
           <img src="./assets/icons/checkList.png" alt="" class="w-10 h-10" />
           <h2 class="text-2xl font-bold leading-tight text-gray-900">
             Confirm Submission
@@ -243,6 +317,11 @@
         </div>
       </div>
     </div>
+
+    <!--overlay for exam auto summision -->
+    <!--overlay for exam auto summision -->
+    
+
     <script type="module" src="./js/exam.js"></script>
   </body>
 </html>
