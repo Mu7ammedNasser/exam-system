@@ -41,9 +41,7 @@ if (!localStorage.getItem("currentUser")) {
           return;
         }
 
-        sessionStorage.setItem("examStarted", "true");
         window.location.replace("./exam.html");
-        //   window.location.href = "./exam.html";
       });
 
       document.querySelector(".logout").addEventListener("click", function () {

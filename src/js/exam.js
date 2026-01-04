@@ -1,4 +1,5 @@
 import { questions } from "../data/questions.js";
+
 if (!localStorage.getItem("currentUser")) {
   window.location.replace("./login.html");
 } else {
@@ -8,8 +9,8 @@ if (!localStorage.getItem("currentUser")) {
   ) {
     window.location.replace("./result.html");
   } else {
+    
     console.log(questions);
-
     var userAnswers = JSON.parse(localStorage.getItem("userAnswers")) || {};
     var currentQuestionIndex = 0;
     var flaggedQuestions = new Set(

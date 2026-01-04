@@ -6,7 +6,7 @@
     <title>E-Examination Platform</title>
     <link rel="stylesheet" href="../dist/output.css" />
   </head>
-  <body class="bg-[#F8F6F6] select-none">
+  <body class="bg-[#F8F6F6] select-none pt-[56px]">
     <header class="bg-white py-2 fixed top-0 w-full">
       <div class="myContianer flex justify-between items-center">
         <div class="logo flex items-center">
@@ -16,17 +16,29 @@
           <a href="#">student portal</a>
         </div>
         <div class="student-info flex gap-1 items-center">
-          <div class="student-name">student Name</div>
-          <span class="text-gray-500 text-2xl">|</span>
+          <div class="student-name"></div>
           <button
-            class=" logout flex items-center gap-2 px-4 py-2 rounded-lg bg-red-100 font-medium hover:bg-red-400 transition-all duration-200 shadow-sm"
+            class="logout flex items-center gap-2 px-4 py-2 rounded-lg bg-red-100 font-medium hover:bg-red-400 hover:text-white transition-all duration-200 shadow-sm"
           >
-            <span>Logout</span>
-            <img
-              src="./assets/icons/icons8-logout-50.png"
-              alt="logout"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
               class="w-4 h-4"
-            />
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 17l5-5-5-5M15 12H3"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 19V5a2 2 0 00-2-2H9v18h10a2 2 0 002-2z"
+              />
+            </svg>
           </button>
         </div>
       </div>
@@ -34,121 +46,162 @@
 
     <main class="mt-32 mb-16 lg:mt-16 lg:mb-4">
       <div
-        class="bg-white shadow-md w-[80%] md:w-[60%] m-auto border-solid rounded-md overflow-hidden border-s-4 border-[#09c]"
+        class="bg-white shadow-md w-[80%] md:w-[60%] m-auto border-solid rounded-md overflow-hidden border-t-4 border-[#09c]"
       >
-        <section class="main-header p-4 border-b border-solid border-slate-200">
+        <section
+          class="main-header p-4 border-b border-solid border-slate-200 text-center"
+        >
           <h2
-            class="rounded-full text-[#09c] mb-3 border border-solid border-[#09c] max-w-fit bg-[#09c]/10 capitalize px-3"
+            class="rounded-full text-[#09c] mb-3 border border-solid border-[#09c] max-w-fit m-auto bg-[#09c]/10 capitalize px-3"
           >
             client side cource
           </h2>
-          <h1
-            class="capitalize text-3xl md:text-4xl font-bold leading-tight mb-4"
-          >
+          <h1 class="capitalize text-2xl md:text-3xl mb-4">
             javaScript II - final exam
           </h1>
-          <p class="text-base md:text-lg text-gray-600">
+          <p class="text-gray-600 text-md">
             This exam evaluates your understanding of basics JavaScript
-            concepts, including the DOM, events, scope, hoisting, callbacks, and
-            core language behaviors. Please ensure you have a stable internet
-            connection.
+            concepts.
           </p>
         </section>
+
         <section class="exam-details p-8 border-b">
-          <h2 class="text-base md:text-lg text-gray-600 mb-2 font-semibold">
-            Exam Details &amp; Instructions
+          <h2 class="text-base md:text-lg text-gray-600 mb-4 font-semibold">
+            Exam Details & Instructions
           </h2>
-          <ul class="list-none grid grid-cols-1 md:grid-cols-2 gap-2">
-            <li class="flex items-center gap-2">
+
+          <ul class="list-none grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Questions -->
+            <li
+              class="flex items-center gap-4 p-4 rounded-lg bg-slate-50 hover:bg-white hover:shadow transition"
+            >
               <div
-                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+                class="w-11 h-11 flex items-center justify-center rounded-lg bg-[#09c]/10 text-[#09c]"
               >
-                <img src="./assets/icons/questions.png" class="w-full" alt="" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16h6M5 6h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"
+                  />
+                </svg>
               </div>
               <div>
                 <h3 class="text-lg font-bold">10 Questions</h3>
-                <p class="capitalize text-base text-gray-600">
-                  total count for this exam
-                </p>
+                <p class="text-sm text-gray-600">total count for this exam</p>
               </div>
             </li>
-            <li class="flex items-center gap-2">
+
+            <!-- MCQ -->
+            <li
+              class="flex items-center gap-4 p-4 rounded-lg bg-slate-50 hover:bg-white hover:shadow transition"
+            >
               <div
-                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+                class="w-11 h-11 flex items-center justify-center rounded-lg bg-green-100 text-green-600"
               >
-                <img src="./assets/icons/multi.png" alt="" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               </div>
               <div>
                 <h3 class="text-lg font-bold">Multiple Choice</h3>
-                <p class="capitalize text-base text-gray-600">
-                  4 options, 1 correct answer
-                </p>
+                <p class="text-sm text-gray-600">4 options, 1 correct answer</p>
               </div>
             </li>
-            <li class="flex items-center gap-2">
+
+            <!-- Time -->
+            <li
+              class="flex items-center gap-4 p-4 rounded-lg bg-slate-50 hover:bg-white hover:shadow transition"
+            >
               <div
-                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+                class="w-11 h-11 flex items-center justify-center rounded-lg bg-orange-100 text-orange-600"
               >
-                <img class="w-full" src="./assets/icons/timer.png" alt="" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6v6l4 2M12 22a10 10 0 100-20 10 10 0 000 20z"
+                  />
+                </svg>
               </div>
               <div>
                 <h3 class="text-lg font-bold">45 Minutes</h3>
-                <p class="capitalize text-base text-gray-600">
+                <p class="text-sm text-gray-600">
                   Auto-submit when time expires
                 </p>
               </div>
             </li>
-            <li class="flex items-center gap-2">
+
+            <!-- Flag -->
+            <li
+              class="flex items-center gap-4 p-4 rounded-lg bg-slate-50 hover:bg-white hover:shadow transition"
+            >
               <div
-                class="img-container w-[44px] h-[44px] rounded-md overflow-hidden"
+                class="w-11 h-11 flex items-center justify-center rounded-lg bg-yellow-100 text-yellow-600"
               >
-                <img
-                  src="./assets/icons/icons8-flag-50.png"
-                  class="w-full"
-                  alt=""
-                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 5v14M5 5h10l-1 4 1 4H5"
+                  />
+                </svg>
               </div>
               <div>
                 <h3 class="text-lg font-bold">Flag for Review</h3>
-                <p class="capitalize text-base text-gray-600">
-                  Return to questions later
-                </p>
+                <p class="text-sm text-gray-600">Return to questions later</p>
               </div>
             </li>
           </ul>
-
-          <div
-            class="flex items-start gap-3 bg-[#ced41424] rounded-md p-3 my-4"
-          >
-            <img
-              src="./assets/icons/i.png "
-              alt="Note"
-              class="w-6 h-6 rounded-full"
-            />
-
-            <p class="text-sm leading-relaxed">
-              <strong>Note:</strong>
-              Once you start the exam, the timer cannot be paused. Please do not
-              refresh the page or navigate back.
-            </p>
-          </div>
         </section>
-        <section class="navigate-to-exam text-center py-4 bg-slate-100">
+
+        <section
+          class="navigate-to-exam text-center px-8 md:px-0 py-4 bg-slate-100"
+        >
           <label
             class="flex items-center justify-center gap-2 text-sm text-gray-700 mb-3"
           >
-            <input
-              id="check-btn"
-              type="checkbox"
-              value="false"
-              class="accent-[#09c]"
-            />
+            <input id="check-btn" type="checkbox" class="accent-[#09c]" />
             I have read and agree to the exam instructions
           </label>
+
           <p id="warningMsg" class="mb-2 text-sm text-red-600 hidden">
             Please confirm that you have read the exam instructions before
             starting.
           </p>
+
           <button
             disabled="true"
             id="startExam"
@@ -159,6 +212,8 @@
         </section>
       </div>
     </main>
+
+
 
     <script src="./js/landing.js"></script>
   </body>
