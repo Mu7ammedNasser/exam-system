@@ -247,7 +247,7 @@ if (!localStorage.getItem("currentUser")) {
     // timing
     /********************************************** */
     // var totalSeconds = 605;
-    var totalSeconds = 20;
+    var totalSeconds = 200;
 
     if (!localStorage.getItem("examEndTime")) {
       const endTime = Date.now() + totalSeconds * 1000;
